@@ -2,3 +2,4 @@ rootProject.name = 'redis0'
 
 include 'jredis'
 
+include 'springboot'

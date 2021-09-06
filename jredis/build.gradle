@@ -1,13 +1,14 @@
 plugins {
     id 'java'
+    id 'idea'
 }
 
 group 'org.iproute'
 version '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
-compileJava {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
 
 repositories {
