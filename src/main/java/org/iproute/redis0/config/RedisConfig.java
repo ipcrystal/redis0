@@ -1,5 +1,6 @@
-package org.iproute.springboot.config;
+package org.iproute.redis0.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -10,13 +11,18 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  * RedisConfig
  *
  * @author winterfell
- * @since 2021/9/5
+ * @since 2021/11/17
  */
 @Configuration
+@Slf4j
 public class RedisConfig {
 
+
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws Exception {
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+
+        log.debug("RedisConnectionFactory : {}", redisConnectionFactory);
+
         // 将template 泛型设置为 <String, Object>
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         // 连接工厂，不必修改
@@ -32,6 +38,9 @@ public class RedisConfig {
         template.setHashValueSerializer(RedisSerializer.json());
         template.afterPropertiesSet();
 
+        log.debug("RedisTemplate : {}", template);
         return template;
     }
+
+
 }

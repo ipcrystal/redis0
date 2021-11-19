@@ -1,8 +1,7 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.4'
+    id 'org.springframework.boot' version '2.5.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-    id 'idea'
 }
 
 group = 'org.iproute'
@@ -15,23 +14,22 @@ configurations {
     }
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
 repositories {
-    maven { url 'https://maven.aliyun.com/repository/central/' }
-    maven { url 'https://maven.aliyun.com/repository/public/' }
-    mavenCentral()
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenLocal()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // jedis
+    implementation 'redis.clients:jedis:3.7.0-RC1'
+
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

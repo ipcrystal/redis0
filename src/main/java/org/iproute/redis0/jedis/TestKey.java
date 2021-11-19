@@ -1,21 +1,22 @@
-package org.iproute.jredis;
+package org.iproute.redis0.jedis;
 
 import redis.clients.jedis.Jedis;
 
 import java.util.Set;
 
 /**
- * TestString
+ * TestKey
  *
  * @author winterfell
- * @since 2021/9/4
+ * @since 2021/11/17
  */
 public class TestKey {
 
     public static void main(String[] args) {
+
         // 1. new Jedis 对象即可
         Jedis jedis = new Jedis("172.100.1.100", 6379);
-        jedis.auth("Root@123#");
+        jedis.auth("123456");
 
         System.out.println("清空数据: " + jedis.flushDB());
         System.out.println("判断某个值是否存在： " + jedis.exists("username"));
@@ -37,6 +38,5 @@ public class TestKey {
         System.out.println("删除当前数据库中所有的key：" + jedis.flushDB());
         System.out.println("返回当前数据库中key的数目：" + jedis.dbSize());
         System.out.println("删除所有数据库中对所有key：" + jedis.flushAll());
-
     }
 }

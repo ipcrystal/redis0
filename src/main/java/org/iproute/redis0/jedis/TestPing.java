@@ -1,21 +1,19 @@
-package org.iproute.jredis;
+package org.iproute.redis0.jedis;
 
 import redis.clients.jedis.Jedis;
 
 /**
- * Demo
+ * TestPing
  *
  * @author winterfell
- * @since 2021/9/4
+ * @since 2021/11/17
  */
 public class TestPing {
-
     public static void main(String[] args) {
-
         // 1. new Jedis 对象即可
         Jedis jedis = new Jedis("172.100.1.100", 6379);
 
-        jedis.auth("Root@123#");
+        jedis.auth("123456");
 
         System.out.println(jedis.ping());
     }

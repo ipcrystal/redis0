@@ -1,9 +1,0 @@
-server:
-  port: 8090
-
-spring:
-  redis:
-    password: 123456
-    sentinel:
-      master: redis-master
-      nodes: 172.100.1.100:26311,172.100.1.100:26312,172.100.1.100:26313
